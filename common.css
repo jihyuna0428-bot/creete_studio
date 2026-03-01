@@ -168,7 +168,7 @@
 
         /* Quote Section */
         .quote-section {
-            padding: 100px 20px;
+            padding: 100px 20px 50px;
             text-align: center;
             background: var(--white);
             position: relative;
@@ -847,9 +847,9 @@
             bottom: 10px;
             background: #fff;
             border: 5px solid #FF4B2B;
-            /*padding: 15px 66px;*/
+            padding: 15px 66px;
             max-width: 430px;
-            padding: 15px clamp(16px, 3vw, 40px);
+            /*padding: 24px clamp(16px, 3vw, 40px);*/
             display: flex;
             gap: 10px;
             align-items: baseline;
@@ -1435,11 +1435,22 @@
             color: #333;
         }
 
+        .zero-header .sub-title img {
+            width: 30%;
+        }
+
         .zero-header h2 {
             font-size: 64px;
             font-weight: 900;
             margin-top: 20px;
             line-height: 1.2;
+        }
+
+        .zero-header h2 p img {
+            width: 40%;
+        }
+        .zero-header h2 p:nth-child(2) img {
+            width: 32%;
         }
 
         .zero-header h2 span {
@@ -1448,10 +1459,12 @@
 
         /* 어두운 박스 */
         .zero-wrapper {
-            margin-top: 80px;
+            margin-top: 120px;
             background: #3f3a38;
             padding: 80px 60px;
             border-radius: 30px;
+            max-width: 1400px;
+            margin: 80px auto 0;
         }
 
         /* 3 ZERO 제목 */
@@ -1466,21 +1479,24 @@
         .zero-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         /* 카드 */
         .zero-card {
             background: #fff;
             border-radius: 25px;
-            padding: 40px 30px;
+            padding: 40px 30px 0;
             text-align: center;
+            max-width: 400px;
         }
 
         .zero-card img {
             width: 100%;
-            max-width: 220px;
-            margin: 30px auto;
+            /*max-width: 220px;*/
+            margin: 10px auto;
             display: block;
         }
 
@@ -1488,7 +1504,7 @@
         .zero-num {
             font-size: 22px;
             font-weight: 800;
-            margin-bottom: 15px;
+            /*margin-bottom: 15px;*/
         }
 
         /* 제목 */
@@ -1540,6 +1556,17 @@
         /* ===============================
            WRAPPER
         ================================ */
+        
+        .sns-section{
+            background: url(img/sns_bg.png) no-repeat;
+            padding: 300px 0;
+        }
+        
+        .sns-header {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
         .sns-wrapper {
           position: relative;
           width: 1150px;
