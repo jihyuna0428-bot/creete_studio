@@ -40,6 +40,7 @@
                 <span></span>
             </button>
             <a href="#" class="btn-inquiry">가맹문의</a>
+            <div class="nav-dim" id="navDim"></div>
         </header>
 
         <section class="hero">
@@ -84,7 +85,6 @@
             <div class="section-title-pill">
                 <img src="img/sales_title.png" alt="박성환돈까스 매출 성과" />
             </div>
-            <span class="s-line"></span>
             <div class="performance-grid">
                 <!-- Card 1 -->
                 <div class="perf-card brown">
@@ -1205,31 +1205,31 @@
             });
 
             /* ===============================
-           더보기 기능 (3줄씩)
-        ================================ */
-            const loadBtn = document.getElementById("loadMoreBtn");
-            const items = document.querySelectorAll(".menu-item");
-            let visibleCount = 9; // 기본 3줄
+               더보기 기능 (3줄씩)
+            ================================ */
+                const loadBtn = document.getElementById("loadMoreBtn");
+                const items = document.querySelectorAll(".menu-item");
+                let visibleCount = 9; // 기본 3줄
 
-            items.forEach((item, index) => {
-                if (index >= visibleCount) {
-                    item.style.display = "none";
-                }
-            });
-
-            loadBtn.addEventListener("click", function () {
-                visibleCount += 9;
                 items.forEach((item, index) => {
-                    if (index < visibleCount) {
-                        item.style.display = "block";
+                    if (index >= visibleCount) {
+                        item.style.display = "none";
                     }
                 });
 
-                if (visibleCount >= items.length) {
-                    loadBtn.style.display = "none";
-                }
+                loadBtn.addEventListener("click", function () {
+                    visibleCount += 9;
+                    items.forEach((item, index) => {
+                        if (index < visibleCount) {
+                            item.style.display = "block";
+                        }
+                    });
+
+                    if (visibleCount >= items.length) {
+                        loadBtn.style.display = "none";
+                    }
+                });
             });
-        });
 
         // 리뷰
         document.addEventListener("DOMContentLoaded", function () {
@@ -1392,6 +1392,58 @@
                     render();
                 }, 120);
             });
+            
+            // 모바일에서는 가운데 영상만 자동재생
+            function handleMobileSNS() {
+                const isMobile = window.innerWidth <= 768;
+                const videos = document.querySelectorAll("#videoTrack video");
+
+                if (isMobile) {
+                    videos.forEach(v => v.pause());
+
+                    const activeVideo = document.querySelector("#videoTrack video.active");
+                    if (activeVideo) {
+                        activeVideo.currentTime = 0;
+                        activeVideo.play().catch(()=>{});
+                    }
+                }
+            }
+
+            window.addEventListener("resize", handleMobileSNS);
+            window.addEventListener("load", handleMobileSNS);
+            
         });
+        
+        // ==============================
+        // 모바일 햄버거 메뉴
+        // ==============================
+        document.addEventListener("DOMContentLoaded", function () {
+
+            const hamburger = document.getElementById("hamburger");
+            const nav = document.getElementById("navMenu");
+            const dim = document.getElementById("navDim");
+
+            function closeMenu() {
+                hamburger.classList.remove("active");
+                nav.classList.remove("active");
+                dim.classList.remove("active");
+            }
+
+            hamburger.addEventListener("click", function () {
+                hamburger.classList.toggle("active");
+                nav.classList.toggle("active");
+                dim.classList.toggle("active");
+            });
+
+            dim.addEventListener("click", closeMenu);
+
+            // 메뉴 클릭하면 닫힘
+            nav.querySelectorAll("a").forEach(link => {
+                link.addEventListener("click", closeMenu);
+            });
+
+        });
+        
+
     </script>
 </html>

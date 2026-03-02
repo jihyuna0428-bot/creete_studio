@@ -25,7 +25,7 @@
         }
     
         img { 
-            max-width: 100%;
+            /*max-width: 100%;*/
             height: auto;
         }
 
@@ -167,7 +167,7 @@
 
         .quote-section p {
             font-family: 'Nanum Myeongjo', serif;
-            font-size: clamp(28px, 4vw, 42px);
+            font-size: clamp(25px, 4vw, 42px);
             color: #6c4839;
             font-weight: 700;
             line-height: 1.4;
@@ -451,7 +451,7 @@
         }
         
         .s-txt2 {
-            font-size: 32px;
+            font-size: clamp(20px, 3vw, 32px);
             color: #efd8d1;
             line-height: 2em;
         }
@@ -773,12 +773,23 @@
             margin-top: 10px;
         }
 
+        .test-results .main-title img:nth-child(1) {
+            width: 100%;
+        }
+        .test-results .main-title img:nth-child(2) {
+            width: 100%;
+        }
+
         /* 설명 */
         .desc {
-            font-size: 24px;
+            font-size: 16px;
             opacity: 0.85;
             line-height: 1.4em;
             margin-bottom: 80px;
+        }
+
+        .test-results .desc br {
+            display: none;
         }
 
         /* 카드 그리드 */
@@ -842,7 +853,7 @@
             bottom: 10px;
             background: #fff;
             border: 5px solid #FF4B2B;
-            padding: 15px 66px;
+            padding: 15px 86px;
             max-width: 430px;
             /*padding: 24px clamp(16px, 3vw, 40px);*/
             display: flex;
@@ -1292,11 +1303,6 @@
             text-align: center;
             margin-bottom: 80px;
         }
-
-        .review-header h2 {
-            font-size: 48px;
-            font-weight: 900;
-        }
         
         .review-header h2 img {
             width: 40%;
@@ -1316,7 +1322,7 @@
         } 
 
         .review-bubbles div:nth-child(5) img {
-            max-width: 120%;
+            width: 120%;
         }
 
         .bubble {
@@ -2038,24 +2044,42 @@
         font-size: 12px;
     }
 
-    /* ===== HERO ===== */
-    .hero {
-        height: 520px;
-    }
-
-    .hero-video {
-        height: 520px;
-    }
 
     .hero h1 img {
         width: 90%;
     }
+    /* ==============================
+       📱 MOBILE - hero video taller
+    ============================== */
+    .hero {
+        height: 85vh;   /* 🔥 기존보다 세로 길게 */
+    }
 
+    .hero-video {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        }
+
+    .hero-badge img {
+        width: 80%;
+    }
+
+    /* 라인삭제 */
+    .sales-performance::after {
+        display: none !important;
+    }
+    
+    .section-title-pill img {
+        width: 90%;
+    }
+    
+    
     /* ===== 통계 카드 세로 ===== */
     .hero-stats {
         flex-direction: column;
         position: relative;
-        margin-top: -60px;
+        margin-top: -160px;
         gap: 20px;
     }
 
@@ -2065,10 +2089,10 @@
 
     .stat-card .card-inner {
         position: relative;
-        transform: none;
-        top: auto;
-        left: auto;
-        width: 90%;
+        transform: translate(-50%);
+        top: 50%;
+        left: 50%;
+        width: 100%;
         height: auto;
         padding: 30px 0;
     }
@@ -2112,14 +2136,196 @@
 
     .menu-title {
         font-size: 18px;
-        padding: 16px 30px;
+        padding: 20px 60px;
     }
 
     .signature-caption .menu-desc {
         font-size: 14px;
         padding: 0 20px;
     }
+    
+    /* ==============================
+       📱 MOBILE - signature center 강조
+    ============================== */
+    .signatureSwiper {
+        padding: 140px 0 0; /* 위아래 여백 확보 */
+    }
 
+    .signatureSwiper .swiper-wrapper {
+        height: 420px;  /* 🔥 여기 숫자 조절 */
+        display: flex;
+        align-items: center;
+    }
+
+    /* 기본 슬라이드 크기 줄이기 */
+    .signatureSwiper .swiper-slide {
+        transform: scale(0.7) !important;
+        opacity: 0 !important;
+    }
+
+    /* 가운데(active)만 크게 */
+    .signatureSwiper .swiper-slide-active {
+        transform: scale(1.25) !important;  /* 🔥 여기 수치 조절 */
+        opacity: 1 !important;
+        z-index: -20;
+    }
+
+    .signature-caption {
+        margin-top: -10px;
+    }
+    
+    .signature-icon{
+        top: 220px;
+        left: 76%;
+    }
+    .signature-icon img {
+        width: 50%;
+    }
+    
+    
+    /* ==============================
+       📱 MOBILE - competitive 카드 여백 정리
+    ============================== */
+    @media (max-width: 768px) {
+
+        .competitive {
+            padding: 140px 20px;   /* 좌우 여백 안정값 */
+        }
+
+        .advantage-grid {
+            grid-template-columns: 1fr;   /* 1열로 변경 */
+            gap: 40px;
+        }
+
+        .adv-card {
+            padding: 40px 30px 300px;   /* 카드 내부 여백 조정 */
+            border-radius: 20px;
+            position: relative;
+        }
+
+        .adv-card .content h3 {
+            font-size: 22px;
+            line-height: 1.4;
+        }
+
+        .adv-card .content p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        
+        .adv-card .number {
+            font-size: 38px;
+            top: -48px;
+        }
+
+    }
+    /* ==============================
+       📱 MOBILE - test-results bg full
+    ============================== */
+    @media (max-width: 768px) {
+
+        .test-results {
+            padding: 120px 20px;
+        }
+
+        .test-results::before {
+            background: url(img/test_bg.png) center center no-repeat;
+            background-size: cover;   /* 🔥 핵심 */
+        }
+
+    }
+    
+    /* ==============================
+       📱 MOBILE - graph 라인 숨김
+    ============================== */
+    .store-title {
+        margin-top: 0;
+    }
+    
+    .graph-wrap .store-title::after {
+        /*display: none;*/
+        width: 400px;
+    }
+    
+    .result-grid {
+        gap: 40px;
+    }
+
+    
+    /* 시스템 */
+    .system-header img {
+        width: 100%;
+    }
+    
+    .system-header p {
+        font-size: 26px;
+        line-height: 1.3em;
+        margin-top: 10px;
+    }
+    
+    /* ==============================
+       📱 MOBILE - review-section 최적화
+    ============================== */
+    @media (max-width: 768px) {
+
+        .review-section {
+            padding: 80px 20px;
+        }
+
+        .review-inner {
+            padding: 0;
+        }
+        
+        .review-header p img {
+            width: 20%;
+        }
+        
+        .review-header h2 {
+            margin-top: 0;
+        }
+        
+        .review-header h2 img {
+            width: 60%;
+            height: auto;
+            margin-top: 20px;
+        }
+
+        .review-bubbles {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            align-items: center;
+        }
+
+        /* 좌우 구분 제거 */
+        .review-bubbles .bubble {
+            width: 100%;
+            text-align: center;
+        }
+        .review-bubbles .bubble.left {
+            margin-left: -20px;
+            transform: none;
+        }
+        .review-bubbles .bubble.left,
+        .review-bubbles .bubble.right {
+            transform: none;
+            margin-right: 20px;
+            margin-top: -50px;
+        }
+
+        .review-bubbles .bubble img {
+            width: 120%;
+            height: auto;
+        }
+        .bubble.right {
+            align-self: center;
+        }
+        .review-bubbles div:nth-child(5) img {
+            width: 140% !important;
+        }
+
+    }
+    
     /* ===== ZERO ===== */
     .zero-grid {
         grid-template-columns: 1fr;
@@ -2128,16 +2334,96 @@
     .zero-wrapper {
         padding: 50px 20px;
     }
+    
+    /* 메뉴 */
+    .menu-header .sub img {
+        width: 20%;
+    }
+    .menu-header h2 {
+        margin: 20px 0;
+    }
+    
+    .menu-header h2 p:nth-child(1) img {
+        width: 100%;
+    }
+    
+    .menu-header h2 p:nth-child(2) img {
+        width: 80%;
+    }
+    
+    .menu-more img {
+        width: 60%;
+    }
 
-    /* ===== SNS ===== */
+
+    /* =================================================
+       📱 MOBILE SNS 단일 영상 모드 (크게 확대 버전)
+    ================================================= */
+
     .sns-wrapper {
         width: 100%;
         height: 520px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
     }
 
+    .video-track {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none !important;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* 기본 영상 숨김 */
     .video-track video {
-        width: 180px;
-        height: 380px;
+        display: none;
+    }
+
+    /* 가운데 영상만 표시 */
+    .video-track video.active {
+        display: block;
+        width: 280px;      /* 🔥 크기 확대 */
+        height: 520px;     /* 🔥 비율 유지 */
+        border-radius: 40px;
+        margin: 0 auto;
+        transform: none;
+        box-shadow: 0 25px 50px rgba(0,0,0,0.35);
+    }
+
+
+    
+    /* ==============================
+       📱 MOBILE - 인테리어 순서 재정렬
+    ============================== */
+    @media (max-width: 768px) {
+
+        .interior-grid {
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* 순서 강제 지정 */
+        .top-left {
+            order: 1;  /* 글 */
+        }
+
+        .top-right {
+            order: 2;  /* 사진 */
+        }
+
+        .bottom-right {
+            order: 3;  /* 글 */
+        }
+
+        .bottom-left {
+            order: 4;  /* 사진 */
+        }
+
     }
 
     /* ===== 창업비용 ===== */
@@ -2160,7 +2446,96 @@
 }
 
 
+    /* =================================================
+       📱 MOBILE HAMBURGER MENU
+    ================================================= */
 
+    /* 햄버거 기본 숨김 */
+    .hamburger {
+        display: none;
+        flex-direction: column;
+        gap: 6px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        z-index: 1200;
+    }
+
+    .hamburger span {
+        width: 26px;
+        height: 3px;
+        background: #4A2C2A;
+        border-radius: 3px;
+        transition: 0.3s ease;
+    }
+
+    /* 딤 배경 */
+    .nav-dim {
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.5);
+        display: none;
+        z-index: 1000;
+    }
+
+    /* ===============================
+       MOBILE
+    ============================== */
+    @media (max-width: 768px) {
+
+        /* 햄버거 표시 */
+        .hamburger {
+            display: flex;
+        }
+
+        /* 기존 메뉴 숨김 */
+        nav {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 260px;
+            height: 100vh;
+            background: #fdfbef;
+            flex-direction: column;
+            padding-top: 100px;
+            transition: 0.35s ease;
+            z-index: 1100;
+            box-shadow: -5px 0 20px rgba(0,0,0,0.1);
+        }
+
+        nav ul {
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+        }
+
+        nav ul li a img {
+            width: 140px;
+        }
+
+        /* 열렸을 때 */
+        nav.active {
+            right: 0;
+        }
+
+        .nav-dim.active {
+            display: block;
+        }
+
+        /* 햄버거 → X 애니메이션 */
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translateY(8px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translateY(-8px);
+        }
+
+    }
 
 
 
