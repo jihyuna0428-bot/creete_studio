@@ -74,6 +74,10 @@
             width: 64%;
         }
         
+        .hamburger {
+            display: none;
+        }
+
         .btn-inquiry {
             background: var(--accent-red);
             color: var(--white);
@@ -1244,7 +1248,7 @@
         .popup-inner {
             position: relative;
             width: 46%;
-            background: #fff;
+            /*background: #fff;*/
             padding: 0px;
             border-radius: 14px;
         }
@@ -1659,25 +1663,6 @@
           margin: 0 auto;
         }
 
-        /* ===============================
-           반응형
-        ================================ */
-        @media (max-width: 768px) {
-
-          .story-title {
-            font-size: 28px;
-          }
-
-          .story-text p {
-            font-size: 16px;
-            line-height: 1.9;
-          }
-
-          .story-section {
-            padding: 100px 20px;
-          }
-        }
-        /* 브랜드 스토리 끝 */
 
         /* 창업비용 시작 */
         /* ===============================
@@ -1790,15 +1775,6 @@
           padding: 140px 20px;
           background: url("img/cont_bg.png") no-repeat;
         }
-
-        /*
-        .psh-contact::before {
-          content: "";
-          position: absolute;
-          inset: 0;
-          background: rgba(60, 25, 10, 0.85);
-        }
-        */
 
         .psh-contact-inner {
           position: relative;
@@ -2030,24 +2006,146 @@
     }
 
     /* ===== HEADER ===== */
-    header {
-        height: 60px;
-        padding: 0 16px;
+     header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
     }
 
-    nav {
-        display: none; /* 햄버거 사용할 경우 */
+    .logo {
+        flex: 1;
     }
 
     .btn-inquiry {
+        order: 2;
+        margin-right: 26px;
         padding: 6px 14px;
         font-size: 12px;
     }
 
-
     .hero h1 img {
         width: 90%;
     }
+    
+     /* =================================================
+       📱 MOBILE HAMBURGER MENU
+    ================================================= */
+
+    /* 햄버거 기본 숨김 */
+    .hamburger {
+        display: none;
+        flex-direction: column;
+        gap: 6px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        z-index: 1200;
+    }
+
+    .hamburger span {
+        width: 26px;
+        height: 3px;
+        background: #4A2C2A;
+        border-radius: 3px;
+        transition: 0.3s ease;
+    }
+
+    /* 딤 배경 */
+    .nav-dim {
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.5);
+        display: none;
+        z-index: 1000;
+    }
+
+    /* ===============================
+       MOBILE
+    ============================== */
+    /* 햄버거 표시 */
+    .hamburger {
+        display: flex;
+    }
+
+    /* 기존 메뉴 숨김 */
+    nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 260px;
+        height: 100vh;
+        background: #fdfbef;
+        flex-direction: column;
+        padding-top: 100px;
+        transition: 0.35s ease;
+        z-index: 1100;
+        box-shadow: -5px 0 20px rgba(0,0,0,0.1);
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+    nav ul li a img {
+        width: 100%;
+    }
+
+    /* 열렸을 때 */
+    nav.active {
+        right: 0;
+    }
+
+    .nav-dim.active {
+        display: block;
+    }
+    
+    /* ==============================
+   햄버거 기본
+    ============================== */
+    .hamburger {
+        width: 30px;
+        height: 22px;
+        position: relative;
+        cursor: pointer;
+        order: 3;
+    }
+
+    .hamburger span {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: #3f1d0e;
+        border-radius: 2px;
+        transition: 0.35s ease;
+    }
+
+    /* 3줄 위치 */
+    .hamburger span:nth-child(1) { top: 0; }
+    .hamburger span:nth-child(2) { top: 9px; }
+    .hamburger span:nth-child(3) { bottom: 0; }
+
+
+    /* ==============================
+       ACTIVE → X 변환
+    ============================== */
+    .hamburger.active span:nth-child(1) {
+        top: 9px;
+        transform: rotate(45deg);
+    }
+
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+        bottom: 10px;
+        transform: rotate(-45deg);
+    }
+    
+    
     /* ==============================
        📱 MOBILE - hero video taller
     ============================== */
@@ -2186,54 +2284,50 @@
     /* ==============================
        📱 MOBILE - competitive 카드 여백 정리
     ============================== */
-    @media (max-width: 768px) {
-
-        .competitive {
-            padding: 140px 20px;   /* 좌우 여백 안정값 */
-        }
-
-        .advantage-grid {
-            grid-template-columns: 1fr;   /* 1열로 변경 */
-            gap: 40px;
-        }
-
-        .adv-card {
-            padding: 40px 30px 300px;   /* 카드 내부 여백 조정 */
-            border-radius: 20px;
-            position: relative;
-        }
-
-        .adv-card .content h3 {
-            font-size: 22px;
-            line-height: 1.4;
-        }
-
-        .adv-card .content p {
-            font-size: 16px;
-            line-height: 1.6;
-        }
-        
-        .adv-card .number {
-            font-size: 38px;
-            top: -48px;
-        }
-
+    .competitive {
+        padding: 140px 20px;   /* 좌우 여백 안정값 */
     }
+
+    .advantage-grid {
+        grid-template-columns: 1fr;   /* 1열로 변경 */
+        gap: 40px;
+    }
+
+    .adv-card {
+        padding: 40px 30px 300px;   /* 카드 내부 여백 조정 */
+        border-radius: 20px;
+        position: relative;
+    }
+
+    .adv-card .content h3 {
+        font-size: 22px;
+        line-height: 1.4;
+    }
+
+    .adv-card .content p {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+    .adv-card .number {
+        font-size: 38px;
+        top: -48px;
+    }
+
+
     /* ==============================
        📱 MOBILE - test-results bg full
     ============================== */
-    @media (max-width: 768px) {
-
-        .test-results {
-            padding: 120px 20px;
-        }
-
-        .test-results::before {
-            background: url(img/test_bg.png) center center no-repeat;
-            background-size: cover;   /* 🔥 핵심 */
-        }
-
+    .test-results {
+        padding: 120px 20px;
     }
+
+    .test-results::before {
+        background: url(img/test_bg.png) center center no-repeat;
+        background-size: cover;   /* 🔥 핵심 */
+    }
+
+
     
     /* ==============================
        📱 MOBILE - graph 라인 숨김
@@ -2266,75 +2360,63 @@
     /* ==============================
        📱 MOBILE - review-section 최적화
     ============================== */
-    @media (max-width: 768px) {
-
-        .review-section {
-            padding: 80px 20px;
-        }
-
-        .review-inner {
-            padding: 0;
-        }
-        
-        .review-header p img {
-            width: 20%;
-        }
-        
-        .review-header h2 {
-            margin-top: 0;
-        }
-        
-        .review-header h2 img {
-            width: 60%;
-            height: auto;
-            margin-top: 20px;
-        }
-
-        .review-bubbles {
-            display: flex;
-            flex-direction: column;
-            gap: 25px;
-            align-items: center;
-        }
-
-        /* 좌우 구분 제거 */
-        .review-bubbles .bubble {
-            width: 100%;
-            text-align: center;
-        }
-        .review-bubbles .bubble.left {
-            margin-left: -20px;
-            transform: none;
-        }
-        .review-bubbles .bubble.left,
-        .review-bubbles .bubble.right {
-            transform: none;
-            margin-right: 20px;
-            margin-top: -50px;
-        }
-
-        .review-bubbles .bubble img {
-            width: 120%;
-            height: auto;
-        }
-        .bubble.right {
-            align-self: center;
-        }
-        .review-bubbles div:nth-child(5) img {
-            width: 140% !important;
-        }
-
-    }
-    
-    /* ===== ZERO ===== */
-    .zero-grid {
-        grid-template-columns: 1fr;
+    .review-section {
+        padding: 80px 20px;
     }
 
-    .zero-wrapper {
-        padding: 50px 20px;
+    .review-inner {
+        padding: 0;
     }
-    
+
+    .review-header p img {
+        width: 20%;
+    }
+
+    .review-header h2 {
+        margin-top: 0;
+    }
+
+    .review-header h2 img {
+        width: 60%;
+        height: auto;
+        margin-top: 20px;
+    }
+
+    .review-bubbles {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        align-items: center;
+    }
+
+    /* 좌우 구분 제거 */
+    .review-bubbles .bubble {
+        width: 100%;
+        text-align: center;
+    }
+    .review-bubbles .bubble.left {
+        margin-left: -20px;
+        transform: none;
+    }
+    .review-bubbles .bubble.left,
+    .review-bubbles .bubble.right {
+        transform: none;
+        margin-right: 20px;
+        margin-top: -50px;
+    }
+
+    .review-bubbles .bubble img {
+        width: 120%;
+        height: auto;
+    }
+    .bubble.right {
+        align-self: center;
+    }
+    .review-bubbles div:nth-child(5) img {
+        width: 140% !important;
+    }
+
+
     /* 메뉴 */
     .menu-header .sub img {
         width: 20%;
@@ -2351,24 +2433,72 @@
         width: 80%;
     }
     
+    .menu_sub_txt {
+        line-height: 1.3em;
+    }
+    
     .menu-more img {
         width: 60%;
     }
+    
+    .popup-inner {
+        width: 90%;
+    }
 
+    
+    /* ===== ZERO ===== */
+    .zero-header .sub-title img {
+        width: 80%;
+    }
+    
+    .zero-header h2 {
+        margin-top: 0;
+    }
+    
+    .zero-header h2 p img {
+        width: 90%;
+    }
+    
+    .zero-header h2 p:nth-child(2) img {
+        width: 92%;
+    }
+    
+    .zero-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .zero-wrapper {
+        padding: 50px 20px;
+        margin-top: 40px;
+    }
+    
 
     /* =================================================
        📱 MOBILE SNS 단일 영상 모드 (크게 확대 버전)
     ================================================= */
 
+    .sns-section {
+        padding-top: 80px;
+        background-size: cover;
+    }
     .sns-wrapper {
         width: 100%;
-        height: 520px;
+        height: 620px;
         display: flex;
         justify-content: center;
         align-items: center;
         overflow: hidden;
+        margin: 0 auto;
     }
-
+    
+    .sns-header span img {
+        width: 36%;
+    }
+    
+    .sns-header h2 img {
+        width: 86%;
+    }
+    
     .video-track {
         position: relative;
         top: auto;
@@ -2377,6 +2507,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        height: 600px;
     }
 
     /* 기본 영상 숨김 */
@@ -2392,48 +2523,133 @@
         border-radius: 40px;
         margin: 0 auto;
         transform: none;
-        box-shadow: 0 25px 50px rgba(0,0,0,0.35);
+        box-shadow: 0 15px 30px rgb(130 130 130 / 50%);
     }
 
 
-    
     /* ==============================
        📱 MOBILE - 인테리어 순서 재정렬
     ============================== */
-    @media (max-width: 768px) {
+    .interior-section {
+        padding-top: 80px;
+    }
+    
+    .text h2 {
+        font-size: 32px;
+    }
+    
+    .text .quote {
+        font-size: 20px;
+    }
+    
+    .text p {
+        line-height: 1.6em;
+        font-weight: 300;
+        font-size: 20px;
+    }
+    
+    .interior-grid {
+        display: flex;
+        flex-direction: column;
+    }
 
-        .interior-grid {
-            display: flex;
-            flex-direction: column;
-        }
+    /* 순서 강제 지정 */
+    .top-left {
+        order: 1;  /* 글 */
+    }
 
-        /* 순서 강제 지정 */
-        .top-left {
-            order: 1;  /* 글 */
-        }
+    .top-right {
+        order: 2;  /* 사진 */
+        margin: -70px -30px 0 0;
+    }
 
-        .top-right {
-            order: 2;  /* 사진 */
-        }
+    .bottom-right {
+        order: 3;  /* 글 */
+        margin-top: -70px;
+    }
 
-        .bottom-right {
-            order: 3;  /* 글 */
-        }
+    .bottom-left {
+        order: 4;  /* 사진 */
+        margin: -70px 0 0 -30px;
+    }
 
-        .bottom-left {
-            order: 4;  /* 사진 */
-        }
-
+    /* 브랜드 스토리 */
+    .story-section {
+        padding: 80px 20px 100px;
+    }
+    
+    .story-title {
+        font-size: 28px;
+        margin-bottom: 30px;
+    }
+    
+    .story-title::after {
+        height: 1px;
+        bottom: 23px;
+    }
+    
+    .story-text p {
+        font-size: 18px;
+        margin-bottom: 30px;
     }
 
     /* ===== 창업비용 ===== */
+    .psh-cost-wrap {
+        padding-top: 80px;
+    }
+    
+    .psh-cost-title {
+        margin-bottom: 30px;
+    }
+    
+    .psh-cost-title img {
+        width: 90%;
+    }
+    
     .psh-cost-table th,
     .psh-cost-table td {
         font-size: 13px;
         padding: 12px;
     }
+    
+    .psh-cost-table td.highlight {
+        font-size: 13px;
+    }
+    
+    .cost2{
+        width: 40% !important;
+    }
+    
+    .psh-cost-note {
+        margin-top: 30px;
+    }
+    
+    .psh-cost-note p {
+        line-height: 1.6em;
+        margin-bottom: 5px;
+    }
 
     /* ===== 문의 ===== */
+    .psh-contact {
+        padding-top: 80px;
+    }
+    
+    .psh-contact-sub{
+        margin-bottom: 0;
+    }
+    
+    .psh-contact-sub img {
+        width: 30%;
+    }
+    
+    .psh-contact-title img{
+        width: 38%;
+    }
+    
+    .psh-contact-title {
+        margin-bottom: 30px;
+    }
+    
     .psh-contact-form {
         grid-template-columns: 1fr;
         padding: 20px;
@@ -2442,114 +2658,22 @@
     .form-row.full {
         grid-column: span 1;
     }
+    
+    .psh-contact-btn {
+        padding: 18px 0;
+    }
+    
+    .psh-contact-btn img {
+        width: 50%;
+    }
+
+    /* footer */
+    .psh-footer-logo img {
+        max-width: 180px;
+    }
+
 
 }
-
-
-    /* =================================================
-       📱 MOBILE HAMBURGER MENU
-    ================================================= */
-
-    /* 햄버거 기본 숨김 */
-    .hamburger {
-        display: none;
-        flex-direction: column;
-        gap: 6px;
-        background: none;
-        border: none;
-        cursor: pointer;
-        z-index: 1200;
-    }
-
-    .hamburger span {
-        width: 26px;
-        height: 3px;
-        background: #4A2C2A;
-        border-radius: 3px;
-        transition: 0.3s ease;
-    }
-
-    /* 딤 배경 */
-    .nav-dim {
-        position: fixed;
-        inset: 0;
-        background: rgba(0,0,0,0.5);
-        display: none;
-        z-index: 1000;
-    }
-
-    /* ===============================
-       MOBILE
-    ============================== */
-    @media (max-width: 768px) {
-
-        /* 햄버거 표시 */
-        .hamburger {
-            display: flex;
-        }
-
-        /* 기존 메뉴 숨김 */
-        nav {
-            position: fixed;
-            top: 0;
-            right: -100%;
-            width: 260px;
-            height: 100vh;
-            background: #fdfbef;
-            flex-direction: column;
-            padding-top: 100px;
-            transition: 0.35s ease;
-            z-index: 1100;
-            box-shadow: -5px 0 20px rgba(0,0,0,0.1);
-        }
-
-        nav ul {
-            flex-direction: column;
-            align-items: center;
-            gap: 30px;
-        }
-
-        nav ul li a img {
-            width: 140px;
-        }
-
-        /* 열렸을 때 */
-        nav.active {
-            right: 0;
-        }
-
-        .nav-dim.active {
-            display: block;
-        }
-
-        /* 햄버거 → X 애니메이션 */
-        .hamburger.active span:nth-child(1) {
-            transform: rotate(45deg) translateY(8px);
-        }
-
-        .hamburger.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .hamburger.active span:nth-child(3) {
-            transform: rotate(-45deg) translateY(-8px);
-        }
-
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
