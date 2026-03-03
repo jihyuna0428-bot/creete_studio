@@ -2015,6 +2015,10 @@
     .logo {
         flex: 1;
     }
+    
+    .logo img {
+        width: 40%;
+    }
 
     .btn-inquiry {
         order: 2;
