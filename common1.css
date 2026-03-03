@@ -2677,7 +2677,11 @@
 
 
 
-
+@media (max-width: 360px) {
+    .logo img {
+        width: 40%;
+    }
+}
 
 
 
