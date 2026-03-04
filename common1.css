@@ -2016,9 +2016,6 @@
         flex: 1;
     }
     
-    .logo img {
-        width: 40%;
-    }
 
     .btn-inquiry {
         order: 2;
@@ -2681,11 +2678,7 @@
 
 
 
-@media (max-width: 360px) {
-    .logo img {
-        width: 40%;
-    }
-}
+
 
 
 
