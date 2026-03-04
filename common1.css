@@ -2678,6 +2678,194 @@
 
 
 
+@media (max-width: 360px) {
+    .quote-section p br {
+        display: none;
+    }
+    
+    .signature-title .s-tit img {
+        width: 40%;
+    }
+    
+    .s-txt2 {
+        font-size: 16px;
+    }
+    
+    .signatureSwiper {
+        padding: 100px 0 0;
+    }
+    
+    .signature-icon {
+        top: 200px;
+        left: 100%;
+    }
+    
+    .signature-icon img {
+        width: 40%;
+    }
+    
+    .signatureSwiper .swiper-wrapper {
+        height: 360px;
+    }
+    
+    .signature-title {
+        top: 40px;
+    }
+    
+    /* 순수익 박스 */
+        .profit-box {
+            padding: 24px clamp(16px, 3vw, 40px);
+        }
+
+    .competitive {
+        padding: 80px 20px;
+    }
+    
+    .competitive .sub-title img {
+        width: 70%;
+    }
+    
+    .competitive h2 {
+        margin-bottom: 60px;
+    }
+    
+    .adv-card .number {
+        font-size: 28px;
+        top: -36px;
+    }
+    
+    .adv-card {
+        padding-bottom: 230px;
+    }
+    
+    .adv-card .illustration img {
+        bottom: 40px;
+        right: -60px;
+    }
+    
+    .test-results {
+        padding: 80px 20px;
+    }
+    
+    .test-results .main-title {
+        margin-bottom: 10px;
+    }
+    
+    .desc {
+        margin-bottom: 40px;
+    }
+    
+    .receipt {
+        padding: 30px 20px 120px;
+    }
+    
+    .profit-box {
+        padding: 12px clamp(26px, 3vw, 40px);
+    }
+    
+    .main-header {
+        padding-top: 80px;
+    }
+    
+    .graph-wrap .store-title::after {
+        width: 300px;
+    }
+    
+    .profit-layout {
+        gap: 60px;
+    }
+    
+    .profit-layout {
+        padding-bottom: 100px;
+    }
+    
+    .menu-section {
+        padding-top: 80px;
+    }
+    
+    .menu-header h2 {
+        margin: 0 0 20px 0;
+    }
+    
+    .menu-header h2 p {
+        height: 1.2em;
+    }
+    
+    .menu_sub_txt {
+        font-size: 18px;
+    }
+    
+    .menu_sub_txt {
+        margin-bottom: 40px;
+    }
+    
+    .zero-section {
+        padding: 80px 20px;
+    }
+    
+    .zero-header h2 p {
+        line-height: 0.8em;
+    }
+    
+    .text h2 {
+        font-size: 26px;
+    }
+    
+    .text p {
+        font-size: 16px;
+    }
+    
+    .story-title {
+        font-size: 22px;
+    }
+    
+    .story-title::after {
+        bottom: 20px;
+    }
+    
+    .story-text p {
+        font-size: 13px;
+    }
+    
+    .story-image {
+        margin-top: 40px;
+    }
+    
+    .psh-cost-table-box {
+        border-radius: 18px;
+    }
+    
+    .cost2 {
+        width: 30%;
+    }
+    
+    .psh-cost-table td.highlight {
+        font-size: 12px;
+    }
+    
+    .psh-cost-table th, .psh-cost-table td {
+        padding: 12px 6px;
+        font-size: 12px;
+    }
+    
+    .psh-cost-wrap {
+        padding-bottom: 80px;
+    }
+    
+    .psh-contact-title {
+        line-height: 1em;
+    }
+    
+    .psh-contact-btn {
+        width: 240px;
+        padding: 16px 0;
+    }
+
+    .psh-footer-logo img {
+        width: 160px;
+    }
+}
+
 
 
 
