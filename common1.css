@@ -1945,6 +1945,7 @@
             max-width:90%;
             border-radius:10px;
             position:relative;
+            height: 500px;
         }
 
         .close-btn{
