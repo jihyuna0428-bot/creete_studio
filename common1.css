@@ -1334,7 +1334,7 @@
             max-width: 80%;
 
             /* 애니메이션 초기값 */
-            opacity: 0;
+            /*opacity: 0;*/
             transform: translateY(40px);
             transition: all 0.8s ease;
         }
@@ -1562,7 +1562,7 @@
           align-items: center;
         }
         .top-left{
-            padding-left: 200px;
+            padding-left: 10%;
         }
         .top-right {
             margin-left: -50px;
@@ -2400,7 +2400,7 @@
 
     /* 좌우 구분 제거 */
     .review-bubbles .bubble {
-        width: 100%;
+        max-width: 100%;
         text-align: center;
     }
     .review-bubbles .bubble.left {
@@ -2410,7 +2410,7 @@
     .review-bubbles .bubble.left,
     .review-bubbles .bubble.right {
         transform: none;
-        margin-right: 20px;
+        margin-right: -40px;
         margin-top: -50px;
     }
 
