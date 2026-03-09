@@ -1192,7 +1192,7 @@
             const popupImage = document.getElementById("popupImage");
             const popupClose = document.getElementById("popupClose");
 
-             크게보기 클릭
+             //크게보기 클릭
             document.querySelectorAll(".view-btn").forEach((btn) => {
                 btn.addEventListener("click", function (e) {
                     e.stopPropagation();
@@ -1202,7 +1202,7 @@
                 });
             });
 
-             닫기
+            //닫기
             popupClose.addEventListener("click", () => {
                 popup.style.display = "none";
             });
