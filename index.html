@@ -1240,26 +1240,6 @@
                 //});
             //});
 
-        // 리뷰
-        document.addEventListener("DOMContentLoaded", function () {
-            const bubbles = document.querySelectorAll(".bubble");
-
-            const observer = new IntersectionObserver(
-                (entries) => {
-                    entries.forEach((entry) => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add("show");
-                        }
-                    });
-                },
-                {
-                    threshold: 0.3
-                }
-            );
-
-            bubbles.forEach((bubble) => {
-                observer.observe(bubble);
-            });
         });
 
         // sns
