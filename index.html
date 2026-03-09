@@ -739,23 +739,19 @@
                 </div>
                 <div class="review-bubbles">
                     <div class="bubble left">
-                        <img src="img/review_1.png" alt="미!쳤!다! 다른말 필요없는 것 같아요 😍😋" />
+                        <img src="img/review_1.png" alt="미!쳤!다! 다른말 필요없는 것 같아요" />
                     </div>
                     <div class="bubble right">
-                        <img
-                            src="img/review_2.png"
-                            alt="주문-배달-먹방 이게 다 한 시간만에 일어난 일이라면 믿으시겠습니까.. 왕맛있었어요ㅠㅠ" />
+                        <img src="img/review_2.png" alt="주문-배달-먹방 이게 다 한 시간만에 일어난 일이라면 믿으시겠습니까.. 왕맛있었어요ㅠㅠ" />
                     </div>
                     <div class="bubble left">
-                        <img src="img/review_3.png" alt="90KG 찍은 돼지(본인)가 인증하는 맛집입니다. 😉👍" />
+                        <img src="img/review_3.png" alt="90KG 찍은 돼지(본인)가 인증하는 맛집입니다." />
                     </div>
-                    <div class="bubble right">
-                        <img src="img/review_4.png" alt="정신을 차려보니 이미 먹고 없었다 😋" />
+                    <div class="bubble right"> 
+                        <img src="img/review_4.png" alt="정신을 차려보니 이미 먹고 없었다" />
                     </div>
                     <div class="bubble left">
-                        <img
-                            src="img/review_5.png"
-                            alt="리뷰같은거 귀찮아서 안쓰는데 이런 맛은 널리 퍼뜨려야 될 것 같아서 남깁니다. 👍👍💯" />
+                        <img src="img/review_5.png" alt="리뷰같은거 귀찮아서 안쓰는데 이런 맛은 널리 퍼뜨려야 될 것 같아서 남깁니다." />
                     </div>
                 </div>
             </div>
@@ -1111,6 +1107,17 @@
             </div>
         </footer>
         <!-- Footer 끝 -->
+        
+
+        <!-- 레이어 팝업 -->
+        <button id="openPopup">팝업 열기</button>
+        <div class="layer-popup" id="layerPopup" hidden>
+          <div class="popup-content">
+            <p>팝업 작업중</p>
+            <button class="close-btn" id="closePopup">닫기</button>
+          </div>
+        </div>
+        <!-- 레이어팝업 끝 -->
     </body>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
@@ -1433,6 +1440,24 @@
 
         });
         
+        // 레이어팝업
+        document.addEventListener("DOMContentLoaded", function(){
+          const popup = document.getElementById("layerPopup");
+          const closeBtn = document.getElementById("closePopup");
+          // 페이지 로드시 팝업 열기
+          popup.style.display = "flex";
+          // 닫기
+          closeBtn.addEventListener("click", function(){
+            popup.style.display = "none";
+          });
+          // 딤 클릭 시 닫기
+          popup.addEventListener("click", function(e){
+            if(e.target === popup){
+              popup.style.display = "none";
+            }
+          });
+        });
+
 
     </script>
 </html>
