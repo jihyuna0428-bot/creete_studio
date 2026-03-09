@@ -2679,7 +2679,7 @@
 
 
 
-@media (max-width: 360px) {
+@media (max-width: 320px) {
     .quote-section p br {
         display: none;
     }
