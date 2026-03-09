@@ -1197,31 +1197,31 @@
         });
 
         // 메뉴
-        //document.addEventListener("DOMContentLoaded", function () {
-        //    const popup = document.getElementById("imagePopup");
-        //    const popupImage = document.getElementById("popupImage");
-        //    const popupClose = document.getElementById("popupClose");
+        document.addEventListener("DOMContentLoaded", function () {
+            const popup = document.getElementById("imagePopup");
+            const popupImage = document.getElementById("popupImage");
+            const popupClose = document.getElementById("popupClose");
 
-            // 크게보기 클릭
-            //document.querySelectorAll(".view-btn").forEach((btn) => {
-            //    btn.addEventListener("click", function (e) {
-            //        e.stopPropagation();
-            //        const img = this.closest(".menu-item").querySelector("img");
-            //        popupImage.src = img.src;
-            //        popup.style.display = "flex";
-            //    });
-            //});
+             크게보기 클릭
+            document.querySelectorAll(".view-btn").forEach((btn) => {
+                btn.addEventListener("click", function (e) {
+                    e.stopPropagation();
+                    const img = this.closest(".menu-item").querySelector("img");
+                    popupImage.src = img.src;
+                    popup.style.display = "flex";
+                });
+            });
 
-            // 닫기
-            //popupClose.addEventListener("click", () => {
-            //    popup.style.display = "none";
-            //});
+             닫기
+            popupClose.addEventListener("click", () => {
+                popup.style.display = "none";
+            });
 
-            //popup.addEventListener("click", (e) => {
-            //    if (e.target === popup) {
-            //        popup.style.display = "none";
-            //    }
-            //});
+            popup.addEventListener("click", (e) => {
+                if (e.target === popup) {
+                    popup.style.display = "none";
+                }
+            });
 
             /* ===============================
                더보기 기능 (3줄씩)
