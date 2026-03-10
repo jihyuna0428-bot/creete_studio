@@ -2712,6 +2712,11 @@
     .psh-footer-logo img {
         max-width: 180px;
     }
+    
+    .popup-content{
+            width:80%;
+            height: fit-content;
+        }
 
 
 }
@@ -2901,6 +2906,12 @@
     .psh-footer-logo img {
         width: 160px;
     }
+    
+    .popup-content{
+            width:90%;
+            height: fit-content;
+        }
+    
 }
 
 
