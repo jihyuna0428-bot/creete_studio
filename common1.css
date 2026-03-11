@@ -2175,6 +2175,10 @@
         transform: rotate(-45deg);
     }
     
+    .quote-section p br {
+        display: none;
+    }
+    
     
     /* ==============================
        📱 MOBILE - hero video taller
@@ -2311,7 +2315,7 @@
     }
     
     .profit-box {
-        padding: 12px clamp(16px, 3vw, 40px);
+        padding: 12px clamp(38px, 3vw, 40px);
     }
     
     .menu-section {
@@ -2569,6 +2573,7 @@
     ============================== */
     .interior-section {
         padding-top: 80px;
+        overflow: hidden;
     }
     
     .text h2 {
