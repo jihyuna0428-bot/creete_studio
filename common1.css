@@ -1887,6 +1887,7 @@
           padding: 80px 20px 60px;
           text-align: center;
           font-family: 'Noto Sans KR', sans-serif;
+            margin-bottom: 100px;
         }
 
         .psh-footer-inner {
@@ -1956,6 +1957,45 @@
             cursor:pointer;
             color: #fff;
         }
+
+
+        /* 하단 고정 문의 버튼 */
+
+        .floating-contact{
+            position:fixed;
+            bottom:0;
+            left:0;
+            width:100%;
+            display:flex;
+            z-index:9998;
+            height: 80px;
+        }
+
+        .floating-contact a{
+            flex:1;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            gap:8px;
+            padding:14px 10px;
+            font-weight:700;
+            font-size:16px;
+            text-decoration:none;
+            color:#fff;
+        }
+
+        .call-btn{
+            background:#c02b2b;
+        }
+
+        .insta-btn{
+            background:#3b2a1d;
+        }
+
+        .floating-contact img{
+            width:22px;
+        }
+
 
 /* =========================================================
    🔥 3단 반응형 통합 구조
@@ -2722,7 +2762,11 @@
             width:80%;
             height: fit-content;
         }
-
+    
+        
+    .floating-contact{
+        height: 50px;
+    }
 
 }
 
@@ -2917,6 +2961,9 @@
             height: fit-content;
         }
     
+    .floating-contact{
+        height: 30px;
+    }
 }
 
 
