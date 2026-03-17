@@ -1026,57 +1026,60 @@
             <div class="psh-contact-inner">
                 <p class="psh-contact-sub"><img src="img/cont_tit.png" alt="CONTACT US" /></p>
                 <h2 class="psh-contact-title"><img src="img/cont_txt.png" alt="창업문의" /></h2>
-
-                <form class="psh-contact-form">
+                <form class="psh-contact-form psh-contact" id="contactForm">
                     <div class="form-row full">
-                        <label>문의형태</label>
-                        <input type="text" placeholder="" />
+                    <label>문의형태</label>
+                    <input type="text" name="type">
                     </div>
 
                     <div class="form-row half">
-                        <label>이름</label>
-                        <input type="text" />
+                    <label>이름</label>
+                    <input type="text" name="name" required>
                     </div>
 
                     <div class="form-row half">
-                        <label>휴대전화</label>
-                        <input type="text" />
+                    <label>휴대전화</label>
+                    <input type="text" name="phone" required>
                     </div>
 
                     <div class="form-row half">
-                        <label>이메일</label>
-                        <input type="email" />
+                    <label>이메일</label>
+                    <input type="email" name="email">
                     </div>
 
                     <div class="form-row half">
-                        <label>창업희망지역</label>
-                        <input type="text" />
+                    <label>창업희망지역</label>
+                    <input type="text" name="area">
                     </div>
 
                     <div class="form-row half">
-                        <label>예상창업비용</label>
-                        <input type="text" />
+                    <label>예상창업비용</label>
+                    <input type="text" name="cost">
                     </div>
 
                     <div class="form-row half">
-                        <label>점포유무</label>
-                        <div class="radio-group">
-                            <label><input type="checkbox" /> 없음</label>
-                            <label><input type="checkbox" /> 있음</label>
-                        </div>
+                    <label>점포유무</label>
+                    <div class="radio-group">
+                    <label><input type="radio" name="store" value="없음"> 없음</label>
+                    <label><input type="radio" name="store" value="있음"> 있음</label>
+                    </div>
                     </div>
                 </form>
-
                 <div class="psh-contact-agree">
                     <label>
                         <input type="checkbox" />
                         답변을 위한 개인정보 수집 및 이용에 대해 동의합니다.
                     </label>
                 </div>
-
-                <button class="psh-contact-btn"><img src="img/cont_btn.png" alt="창업 문의하기" /></button>
+                <button type="submit" form="contactForm" class="psh-contact-btn">
+                    <img src="img/cont_btn.png" alt="창업 문의하기">
+                </button>
             </div>
         </section>
+        <!-- 문의하기 끝 -->
+        
+        <!-- 문의하기 시작 -->
+        
         <!-- 문의하기 끝 -->
 
         <!-- Footer 시작 -->
@@ -1094,7 +1097,7 @@
                         <span class="divider">|</span>
                         대표 : 박성환
                         <span class="divider">|</span>
-                        사업자등록번호 000-00-00000
+                        사업자등록번호 468-69-00372
                         <span class="divider">|</span>
                         전화번호 : 010-7111-0618
                     </p>
@@ -1469,6 +1472,40 @@
               popup.style.display = "none";
             }
           });
+        });
+        
+        // 창업 문의하기
+        const scriptURL = "여기에_웹앱URL";
+
+        document.getElementById("contactForm").addEventListener("submit", function(e){
+
+        e.preventDefault();
+
+        const form = this;
+
+        const data = {
+        type: form.type.value,
+        name: form.name.value,
+        phone: form.phone.value,
+        email: form.email.value,
+        area: form.area.value,
+        cost: form.cost.value,
+        store: form.store.value
+        };
+
+        fetch(scriptURL,{
+        method:"POST",
+        body:JSON.stringify(data)
+        })
+        .then(res=>res.json())
+        .then(res=>{
+        alert("창업 문의가 정상 접수되었습니다.");
+        form.reset();
+        })
+        .catch(err=>{
+        alert("전송 오류가 발생했습니다.");
+        });
+
         });
 
 
